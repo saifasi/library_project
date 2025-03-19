@@ -1,0 +1,38 @@
+<h1>Books</h1>
+
+<%= form_with(url: books_path, method: :get, local: true) do |form| %>
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <%= form.text_field :query, placeholder: "Search books...", class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: "Select Genre" }, { class: "form-select" } %>
+    </div>
+    <div class="col-md-4">
+      <%= form.submit "Search", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Published Date</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= link_to book.author.name, author_path(book.author) %></td>
+        <td><%= book.published_date %></td>
+        <td><%= link_to "View", book_path(book), class: "btn btn-secondary btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @books %>

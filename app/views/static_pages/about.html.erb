@@ -1,0 +1,10 @@
+<h1>About This Project</h1>
+<p>This application uses data from multiple sources:</p>
+<ul>
+  <li><strong>Faker:</strong> Generates random authors and books.</li>
+  <li><strong>CSV:</strong> Imports a list of genres.</li>
+  <li><strong>JSON:</strong> Imports a set of tags.</li>
+</ul>
+<p>The database schema and associations (one-to-many and many-to-many) are demonstrated using this data.</p>
+<!-- ERD diagram image -->
+<%= image_tag "erd_diagram.png", alt: "ERD Diagram" if Rails.root.join("app", "assets", "images", "erd_diagram.png").exist? %>
