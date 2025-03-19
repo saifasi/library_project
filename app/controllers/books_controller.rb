@@ -4,7 +4,8 @@ class BooksController < ApplicationController
 
     # Simple text search
     if params[:query].present?
-      @books = @books.where("title ILIKE ?", "%#{params[:query]}%")
+      query_str = "%#{params[:query].downcase}%"
+      @books = @books.where("LOWER(title) LIKE ?", query_str)
     end
 
     # Hierarchical search by Genre (using dropdown)
