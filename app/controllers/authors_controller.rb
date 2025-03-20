@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def show
-    @author = Author.find(params[:id])
-    @books = author.books.order(published_date: :desc).page(params[:page]).per(10)
+    @current_author = Author.find(params[:id])
+    @books = @current_author.books.order(:published_date).page(params[:page]).per(10)
   end
 end
