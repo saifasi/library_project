@@ -19,7 +19,7 @@ gem "jbuilder"
 
 gem 'faker'
 gem 'kaminari'
-gem 'bootstrap', '~> 5.2'
+gem 'bootstrap', '~> 5.3'
 gem 'sassc-rails'
 gem 'csv'
 
